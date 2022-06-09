@@ -10,10 +10,8 @@ Map makers toolkit
 5. <TERRAIN_GENERATION>
 6. <OBJECTS_GENERATION>
 ```
-Sections are not required to be in order, and individual generation commands can be ommited without problem.
+Sections are not required to be in order, and not all sections are required for map generation.
 
-
-___
 
 ## References
 
@@ -22,5 +20,6 @@ ___
 * RMS Scripts https://github.com/Naramsim/AoE2-random-map-scripts/tree/master/The%20forgotten
 
 ## Dire Straits
-> Combining `direct_placement` with offline out-of-engine map generation and validation (by bizs) 
+> Combining `direct_placement` with offline out-of-engine map generation and validation (by bizs)  
+Explores the trade-offs between randomness and map balance.
 https://docs.google.com/document/d/1E_Si9iXmzUqFuptkW-8F6XdmoxDXNUG36XIhnh86krU/edit
