@@ -21,3 +21,6 @@ ___
 * VScode extension https://marketplace.visualstudio.com/items?itemName=anda.rms-check-vscode
 * RMS Scripts https://github.com/Naramsim/AoE2-random-map-scripts/tree/master/The%20forgotten
 
+## Dire Straits
+> Combining `direct_placement` with offline out-of-engine map generation and validation (by bizs) 
+https://docs.google.com/document/d/1E_Si9iXmzUqFuptkW-8F6XdmoxDXNUG36XIhnh86krU/edit

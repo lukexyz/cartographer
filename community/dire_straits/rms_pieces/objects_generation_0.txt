@@ -1,0 +1,69 @@
+#const DS_O_INVISIBLE 244
+
+<OBJECTS_GENERATION>
+
+/*
+	max distance XX doesn't work with actor_area_to_place_in
+	can avoid areas with 90XX instead
+*/
+
+#const DS_O_BORDER 244
+#const DS_O_AVOID_PLAYERS_ACTOR_AREA 244
+
+if DS_4_OR_FEWER_PLAYERS
+	create_object DS_O_BORDER {
+		number_of_objects 1
+		number_of_groups 1
+		place_on_specific_land_id 9
+		
+		group_placement_radius 0
+		max_distance_to_players 0
+		
+		actor_area 9000
+		if TINY_MAP
+			actor_area_radius 55
+		elseif MEDIUM_MAP
+			actor_area_radius 74
+		elseif LARGE_MAP
+			actor_area_radius 85
+		else
+			actor_area_radius 90
+		endif
+	}
+	
+	create_object DS_O_BORDER {
+		number_of_objects 1
+		number_of_groups 9999
+		
+		group_placement_radius 0
+		
+		avoid_actor_area 9000
+		
+		actor_area 9999
+		actor_area_radius 0
+	}
+endif
+
+create_object DS_O_AVOID_PLAYERS_ACTOR_AREA {
+	number_of_objects 1
+	number_of_groups 99999
+	
+	group_placement_radius 0
+	
+	min_distance_to_players 20
+	
+	actor_area 9020
+	actor_area_radius 0
+}
+
+create_object DS_O_AVOID_PLAYERS_ACTOR_AREA {
+	number_of_objects 1
+	number_of_groups 99999
+	
+	group_placement_radius 0
+	
+	min_distance_to_players 40
+	
+	actor_area 9040
+	actor_area_radius 0
+}

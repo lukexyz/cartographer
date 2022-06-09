@@ -1,0 +1,503 @@
+<TERRAIN_GENERATION>
+
+color_correction CC_JUNGLE
+
+/*
+	There seems to be some buggy behavior when replacing all of one terrain with another.
+		Repeating commands multiple times solves the issue, but there is a
+		limit of 99 create_terrain commands allowed.
+*/
+
+create_terrain DS_T_BASE {
+	base_terrain DS_T_HILL
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_HILL
+	land_percent 98
+	number_of_clumps 998
+}
+
+create_terrain DS_T_BASE {
+	base_terrain DS_T_VALLEY
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_VALLEY
+	land_percent 98
+	number_of_clumps 998
+}
+
+
+create_terrain DS_T_BASE {
+	base_terrain DS_T_L
+	land_percent 99
+	number_of_clumps 999
+	height_limits 1 7
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_L
+	land_percent 98
+	number_of_clumps 998
+	height_limits 1 7
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_DEFAULT
+	land_percent 99
+	number_of_clumps 999
+	height_limits 1 7
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_DEFAULT
+	land_percent 98
+	number_of_clumps 998
+	height_limits 1 7
+}
+
+/* start remove leftover hills from lakes on all sizes */
+create_terrain DS_T_TEMP {
+	base_terrain DS_T_L
+	land_percent 99
+	number_of_clumps 999
+	spacing_to_other_terrain_types 2
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_L
+	land_percent 99
+	number_of_clumps 999
+	spacing_to_other_terrain_types 1
+}
+create_terrain DS_T_L {
+	base_terrain DS_T_TEMP
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_L {
+	base_terrain DS_T_TEMP
+	land_percent 98
+	number_of_clumps 998
+}
+/* stop remove leftover hills from lakes on all sizes */
+
+create_terrain DS_T_LAKE_EDGE_WATER {
+	base_terrain DS_T_L
+	
+	land_percent 99
+	number_of_clumps 999
+	
+	spacing_to_other_terrain_types 4
+}
+create_terrain DS_T_LAKE_EDGE_WATER {
+	base_terrain DS_T_L
+	
+	land_percent 98
+	number_of_clumps 998
+	
+	spacing_to_other_terrain_types 4
+}
+
+/* start normalize river width */
+if DS_6_OR_FEWER_PLAYERS
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 2
+	}
+	
+	create_terrain DS_T_L {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_L {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 2
+	}
+	
+	create_terrain DS_T_BASE {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_BASE {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 2
+	}
+	
+	if DS_4_OR_FEWER_PLAYERS
+		create_terrain DS_T_L {
+			base_terrain DS_T_DEFAULT
+			land_percent 99
+			number_of_clumps 999
+			
+			spacing_to_other_terrain_types 1
+		}
+		create_terrain DS_T_L {
+			base_terrain DS_T_DEFAULT
+			land_percent 98
+			number_of_clumps 998
+			spacing_to_other_terrain_types 1
+		}
+		
+		create_terrain DS_T_BASE {
+			base_terrain DS_T_DEFAULT
+			land_percent 99
+			number_of_clumps 999
+			spacing_to_other_terrain_types 1
+		}
+		create_terrain DS_T_BASE {
+			base_terrain DS_T_DEFAULT
+			land_percent 98
+			number_of_clumps 998
+			spacing_to_other_terrain_types 1
+		}
+	endif
+	
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_TEMP
+		land_percent 99
+		number_of_clumps 999
+	}
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_TEMP
+		land_percent 98
+		number_of_clumps 998
+	}
+endif
+
+if DS_2_OR_FEWER_PLAYERS
+	
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 2
+	}
+	
+	create_terrain DS_T_L {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_L {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 2
+	}
+	
+	create_terrain DS_T_BASE {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_BASE {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 2
+	}
+	
+	create_terrain DS_T_L {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		
+		spacing_to_other_terrain_types 1
+	}
+	create_terrain DS_T_L {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 1
+	}
+	
+	create_terrain DS_T_BASE {
+		base_terrain DS_T_DEFAULT
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 1
+	}
+	create_terrain DS_T_BASE {
+		base_terrain DS_T_DEFAULT
+		land_percent 98
+		number_of_clumps 998
+		spacing_to_other_terrain_types 1
+	}
+	
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_TEMP
+		land_percent 99
+		number_of_clumps 999
+	}
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_TEMP
+		land_percent 98
+		number_of_clumps 998
+	}
+endif
+/* stop normalize river width */
+
+/* start lake finalizing */
+create_terrain DS_T_TEMP {
+	base_terrain DS_T_LAKE_EDGE_WATER
+	
+	land_percent 99
+	number_of_clumps 999
+	
+	spacing_to_other_terrain_types 1
+}
+create_terrain DS_T_TEMP {
+	base_terrain DS_T_LAKE_EDGE_WATER
+	
+	land_percent 98
+	number_of_clumps 998
+	
+	spacing_to_other_terrain_types 1
+}
+
+/* makes it appear a little less perfectly square */
+create_terrain DS_T_L {
+	base_terrain DS_T_LAKE_EDGE_WATER
+	
+	if DS_3_LAKES
+		number_of_tiles 75
+		number_of_clumps 15
+	elseif DS_4_LAKES
+		number_of_tiles 100
+		number_of_clumps 20
+	elseif DS_5_LAKES
+		number_of_tiles 125
+		number_of_clumps 25
+	elseif DS_6_LAKES
+		number_of_tiles 150
+		number_of_clumps 30
+	endif
+}
+
+create_terrain DS_T_LAKE_EDGE_WATER {
+	base_terrain DS_T_TEMP
+	
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_LAKE_EDGE_WATER {
+	base_terrain DS_T_TEMP
+	
+	land_percent 98
+	number_of_clumps 998
+}
+
+create_terrain DS_T_LAKE_WATER {
+	base_terrain DS_T_LAKE_EDGE_WATER
+	
+	land_percent 99
+	number_of_clumps 999
+	
+	spacing_to_other_terrain_types 1
+}
+create_terrain DS_T_LAKE_WATER {
+	base_terrain DS_T_LAKE_EDGE_WATER
+	
+	land_percent 99
+	number_of_clumps 999
+	
+	spacing_to_other_terrain_types 1
+}
+
+create_terrain DS_T_LAKE_CENTER_WATER {
+	base_terrain DS_T_LAKE_WATER
+	
+	land_percent 99
+	number_of_clumps 999
+	
+	spacing_to_other_terrain_types 3
+}
+create_terrain DS_T_LAKE_CENTER_WATER {
+	base_terrain DS_T_LAKE_WATER
+	
+	land_percent 98
+	number_of_clumps 998
+	
+	spacing_to_other_terrain_types 3
+}
+
+create_terrain DS_T_DEFAULT {
+	base_terrain DS_T_L
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_DEFAULT {
+	base_terrain DS_T_L
+	land_percent 98
+	number_of_clumps 998
+}
+/* stop lake finalizing */
+
+/* start connect possible fragments and remove holes */
+if DS_6_OR_MORE_PLAYERS
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 5
+	}
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 5
+		set_flat_terrain_only
+	}
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 4
+	}
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 4
+		set_flat_terrain_only
+	}
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 3
+	}
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 3
+		set_flat_terrain_only
+	}
+endif
+
+if DS_4_OR_MORE_PLAYERS
+	create_terrain DS_T_TEMP {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 2
+	}
+	create_terrain DS_T_DEFAULT {
+		base_terrain DS_T_BASE
+		land_percent 99
+		number_of_clumps 999
+		spacing_to_other_terrain_types 2
+		set_flat_terrain_only
+	}
+endif
+
+create_terrain DS_T_TEMP {
+	base_terrain DS_T_BASE
+	land_percent 99
+	number_of_clumps 999
+	spacing_to_other_terrain_types 1
+}
+create_terrain DS_T_DEFAULT {
+	base_terrain DS_T_BASE
+	land_percent 99
+	number_of_clumps 999
+	spacing_to_other_terrain_types 1
+	set_flat_terrain_only
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_TEMP
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_BASE {
+	base_terrain DS_T_TEMP
+	land_percent 98
+	number_of_clumps 998
+}
+/* stop connect possible fragments and remove holes */
+
+create_terrain DS_T_BEACH {
+	base_terrain DS_T_BASE
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_BEACH {
+	base_terrain DS_T_BASE
+	land_percent 98
+	number_of_clumps 998
+}
+
+create_terrain DS_T_SHALLOW {
+	base_terrain DS_T_DEFAULT
+	land_percent 99
+	number_of_clumps 999
+}
+create_terrain DS_T_SHALLOW {
+	base_terrain DS_T_DEFAULT
+	land_percent 98
+	number_of_clumps 998
+}
+
+create_terrain DS_T_COAST {
+	base_terrain DS_T_BEACH
+	land_percent 99
+	number_of_clumps 999
+	spacing_to_other_terrain_types 3
+}
+
+create_terrain DS_T_LANDMASS {
+	base_terrain DS_T_COAST
+	land_percent 99
+	number_of_clumps 999
+	spacing_to_other_terrain_types 3
+}
+
+/* start place forests */
+create_terrain DS_T_FOREST {
+	base_terrain DS_T_LANDMASS
+	
+	if TINY_MAP
+		number_of_tiles 750
+		number_of_clumps 25
+	elseif MEDIUM_MAP
+		number_of_tiles 630
+		number_of_clumps 21
+	else
+		number_of_tiles 540
+		number_of_clumps 18
+	endif
+	set_scale_by_size
+	set_scale_by_groups
+	
+	clumping_factor 100
+	
+	set_avoid_player_start_areas
+}
+/* stop place forests */

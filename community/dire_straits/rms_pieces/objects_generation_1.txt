@@ -1,0 +1,996 @@
+/*
+	per-player objects that attempt placing-restrictions
+	actor area range [1, 99]
+*/
+
+/*
+	random markers for debugging stuff
+	trees: (413 snow pine, 1052 baobab, 1248 autumn oak, 1250 dead tree, 1347 cypress)
+	birds: (96 hawk, 303 seagulls, 816 macaw, 862 stormy, 1056 falcon, 1305 vulture)
+	inanimate: (851 flag, 855 old stone head)
+	invisible: 244
+*/
+
+/*
+#const DS_O_INCLUDE 1305
+#const DS_O_EXCLUDE 855
+
+#const DS_O_SUCCESS_1 413
+#const DS_O_SUCCESS_2 1052
+#const DS_O_SUCCESS_3 1248
+#const DS_O_SUCCESS_4 1347
+
+#const DS_O_SUCCESS_1_B 598
+#const DS_O_SUCCESS_2_B 79
+#const DS_O_SUCCESS_3_B 234
+#const DS_O_SUCCESS_4_B 235
+*/
+
+#const DS_O_INCLUDE 244
+#const DS_O_EXCLUDE 244
+
+#const DS_O_SUCCESS_1 244
+#const DS_O_SUCCESS_2 244
+#const DS_O_SUCCESS_3 244
+#const DS_O_SUCCESS_4 244
+
+#const DS_O_SUCCESS_1_B 244
+#const DS_O_SUCCESS_2_B 244
+#const DS_O_SUCCESS_3_B 244
+#const DS_O_SUCCESS_4_B 244
+
+create_object DS_O_INVISIBLE {
+	number_of_objects 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_COAST
+	
+	actor_area 70
+	
+	if TINY_MAP
+		number_of_groups 35
+		max_distance_to_players 25
+		temp_min_distance_group_placement 4
+		actor_area_radius 15
+	elseif MEDIUM_MAP
+		number_of_groups 25
+		max_distance_to_players 30
+		temp_min_distance_group_placement 5
+		actor_area_radius 22
+	elseif LARGE_MAP
+		number_of_groups 20
+		max_distance_to_players 35
+		temp_min_distance_group_placement 6
+		actor_area_radius 27
+	else
+		number_of_groups 15
+		max_distance_to_players 40
+		temp_min_distance_group_placement 7
+		actor_area_radius 30
+	endif
+}
+
+create_object DS_O_EXCLUDE {
+	number_of_objects 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_BEACH
+	max_distance_to_players 40
+	
+	if TINY_MAP
+		number_of_groups 25
+		temp_min_distance_group_placement 4
+	elseif MEDIUM_MAP
+		number_of_groups 20
+		temp_min_distance_group_placement 5
+	elseif LARGE_MAP
+		number_of_groups 15
+		temp_min_distance_group_placement 6
+	else
+		number_of_groups 10
+		temp_min_distance_group_placement 7
+	endif
+	
+	actor_area 80
+	actor_area_radius 10
+}
+
+create_object DS_O_INCLUDE {
+	number_of_objects 1
+	number_of_groups 33
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_LANDMASS
+	actor_area_to_place_in 70
+	avoid_actor_area 9040
+	avoid_actor_area 80
+	if DS_4_OR_FEWER_PLAYERS
+		avoid_actor_area 9999
+	endif
+	
+	temp_min_distance_group_placement 2
+	
+	actor_area 71
+	actor_area_radius 5
+}
+
+/* main gold creation */
+create_object GOLD {
+	number_of_objects 5
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	find_closest
+	actor_area_to_place_in 71
+	avoid_actor_area 80
+	avoid_actor_area 9999
+	avoid_actor_area 9020
+	min_distance_to_players 12
+	avoid_forest_zone 2
+	
+	actor_area 10
+	actor_area_radius 8
+	min_distance_group_placement 2
+}
+
+	/* success code chain 1 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 10
+		find_closest
+		
+		actor_area 20
+		actor_area_radius 30
+	}
+	
+	/* success code chain 2 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 20
+		find_closest
+		min_distance_to_players 3
+		
+		actor_area 30
+		actor_area_radius 43
+	}
+	
+	/* backup main gold creation */
+	if DS_USE_BACKUPS
+		create_object GOLD {
+			avoid_actor_area 30
+			
+			number_of_objects 5
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			set_tight_grouping
+			group_placement_radius 1
+			
+			terrain_to_place_on DS_T_LANDMASS
+			avoid_actor_area 80
+			avoid_actor_area 9999
+			min_distance_to_players 10
+			max_distance_to_players 20
+			avoid_forest_zone 2
+			
+			actor_area 10
+			actor_area_radius 8
+			min_distance_group_placement 2
+		}
+	endif
+		
+		/* success code chain 1 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 10
+			find_closest
+			
+			actor_area 20
+			actor_area_radius 30
+		}
+		
+		/* success code chain 2 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 20
+			find_closest
+			min_distance_to_players 5
+			
+			actor_area 30
+			actor_area_radius 43
+		}
+		
+		/* 2nd backup main gold creation */
+		if DS_USE_BACKUPS
+			create_object GOLD {
+				avoid_actor_area 30
+				
+				number_of_objects 5
+				number_of_groups 1
+				set_place_for_every_player
+				set_gaia_object_only
+				
+				set_tight_grouping
+				group_placement_radius 1
+				
+				terrain_to_place_on DS_T_LANDMASS
+				min_distance_to_players 10
+				max_distance_to_players 25
+				avoid_forest_zone 2
+				
+				actor_area 10
+				actor_area_radius 8
+				min_distance_group_placement 2
+			}
+		endif
+
+/* main stone creation */
+create_object STONE {
+	number_of_objects 5
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	find_closest
+	actor_area_to_place_in 71
+	avoid_actor_area 80
+	avoid_actor_area 9999
+	avoid_actor_area 9020
+	min_distance_to_players 12
+	avoid_forest_zone 2
+	avoid_actor_area 10
+	
+	actor_area 11
+	actor_area_radius 8
+	min_distance_group_placement 2
+}
+
+	/* success code */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 11
+		find_closest
+		
+		actor_area 21
+		actor_area_radius 30
+	}
+	
+	/* success code chain 2 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 21
+		find_closest
+		min_distance_to_players 3
+		
+		actor_area 31
+		actor_area_radius 43
+	}
+	
+	/* backup main stone creation */
+	if DS_USE_BACKUPS
+		create_object STONE {
+			avoid_actor_area 31
+			
+			number_of_objects 5
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			set_tight_grouping
+			group_placement_radius 1
+			
+			terrain_to_place_on DS_T_LANDMASS
+			avoid_actor_area 80
+			avoid_actor_area 9999
+			min_distance_to_players 10
+			max_distance_to_players 20
+			avoid_forest_zone 2
+			avoid_actor_area 10
+			
+			actor_area 11
+			actor_area_radius 8
+			min_distance_group_placement 2
+		}
+	endif
+
+		/* success code */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 11
+			find_closest
+			
+			actor_area 21
+			actor_area_radius 30
+		}
+		
+		/* success code chain 2 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 21
+			find_closest
+			min_distance_to_players 5
+			
+			actor_area 31
+			actor_area_radius 43
+		}
+		
+		/* 2nd backup main stone creation */
+		if DS_USE_BACKUPS
+			create_object STONE {
+				avoid_actor_area 31
+				
+				number_of_objects 5
+				number_of_groups 1
+				set_place_for_every_player
+				set_gaia_object_only
+				
+				set_tight_grouping
+				group_placement_radius 1
+				
+				terrain_to_place_on DS_T_LANDMASS
+				min_distance_to_players 10
+				max_distance_to_players 25
+				avoid_forest_zone 2
+				
+				actor_area 11
+				actor_area_radius 8
+				min_distance_group_placement 2
+			}
+		endif
+
+create_object DLC_ORANGEBUSH {
+	if DS_BERRIES_SIZE_5
+		number_of_objects 5
+	elseif DS_BERRIES_SIZE_6
+		number_of_objects 6
+	elseif DS_BERRIES_SIZE_7
+		number_of_objects 7
+	elseif DS_BERRIES_SIZE_8
+		number_of_objects 8
+	endif
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 12
+	max_distance_to_players 12
+	avoid_actor_area 71
+	avoid_actor_area 80
+	avoid_actor_area 9999
+	avoid_forest_zone 2
+	avoid_actor_area 10
+	avoid_actor_area 11
+	
+	actor_area 18
+	actor_area_radius 12
+	min_distance_group_placement 2
+}
+
+/* success code */
+create_object DS_O_INVISIBLE {
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	actor_area_to_place_in 18
+	find_closest
+	
+	actor_area 28
+	actor_area_radius 20
+}
+
+	/* backup */
+	create_object DLC_ORANGEBUSH {
+		avoid_actor_area 28
+		
+		if DS_BERRIES_SIZE_5
+			number_of_objects 5
+		elseif DS_BERRIES_SIZE_6
+			number_of_objects 6
+		elseif DS_BERRIES_SIZE_7
+			number_of_objects 7
+		elseif DS_BERRIES_SIZE_8
+			number_of_objects 8
+		endif
+		number_of_groups 1
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		set_tight_grouping
+		group_placement_radius 1
+		
+		terrain_to_place_on DS_T_LANDMASS
+		min_distance_to_players 11
+		max_distance_to_players 16
+		avoid_forest_zone 2
+		
+		actor_area 18
+		actor_area_radius 12
+		min_distance_group_placement 3
+	}
+
+
+/* secondary gold creation */
+create_object GOLD {
+	number_of_objects 4
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	find_closest
+	actor_area_to_place_in 71
+	avoid_actor_area 9999
+	min_distance_to_players 17
+	avoid_forest_zone 2
+	avoid_actor_area 10
+	avoid_actor_area 11
+	
+	actor_area 12
+	actor_area_radius 8
+	min_distance_group_placement 2
+}
+
+	/* success code chain 1 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 12
+		find_closest
+		
+		actor_area 22
+		actor_area_radius 30
+	}
+	
+	/* success code chain 2 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 22
+		find_closest
+		min_distance_to_players 3
+		
+		actor_area 32
+		actor_area_radius 43
+	}
+	
+	/* backup secondary gold creation */
+	if DS_USE_BACKUPS
+		create_object GOLD {
+			avoid_actor_area 32
+			
+			number_of_objects 4
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			set_tight_grouping
+			group_placement_radius 1
+			
+			terrain_to_place_on DS_T_LANDMASS
+			avoid_actor_area 80
+			avoid_actor_area 9999
+			min_distance_to_players 15
+			max_distance_to_players 30
+			avoid_forest_zone 2
+			avoid_actor_area 10
+			avoid_actor_area 11
+			
+			actor_area 12
+			actor_area_radius 8
+			min_distance_group_placement 2
+		}
+	endif
+
+		/* success code chain 1 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 12
+			find_closest
+			
+			actor_area 22
+			actor_area_radius 30
+		}
+		
+		/* success code chain 2 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 22
+			find_closest
+			min_distance_to_players 5
+			
+			actor_area 32
+			actor_area_radius 43
+		}
+		
+		/* 2nd backup secondary gold creation */
+		if DS_USE_BACKUPS
+			create_object GOLD {
+				avoid_actor_area 32
+				
+				number_of_objects 4
+				number_of_groups 1
+				set_place_for_every_player
+				set_gaia_object_only
+				
+				set_tight_grouping
+				group_placement_radius 1
+				
+				terrain_to_place_on DS_T_LANDMASS
+				min_distance_to_players 15
+				max_distance_to_players 35
+				avoid_forest_zone 2
+				
+				actor_area 12
+				actor_area_radius 8
+				min_distance_group_placement 2
+			}
+		endif
+
+/* secondary stone creation */
+create_object STONE {
+	number_of_objects 4
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	find_closest
+	actor_area_to_place_in 71
+	avoid_actor_area 9999
+	min_distance_to_players 17
+	avoid_forest_zone 2
+	avoid_actor_area 10
+	avoid_actor_area 11
+	avoid_actor_area 12
+	
+	min_distance_group_placement 2
+	
+	/* success code */
+	actor_area 13
+	actor_area_radius 8
+}
+
+	/* success code chain 1 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 13
+		find_closest
+		
+		actor_area 23
+		actor_area_radius 30
+	}
+	
+	/* success code chain 2 */
+	create_object DS_O_INVISIBLE {
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		actor_area_to_place_in 23
+		find_closest
+		min_distance_to_players 3
+		
+		actor_area 33
+		actor_area_radius 43
+	}
+	
+	/* backup secondary stone creation */
+	if DS_USE_BACKUPS
+		create_object STONE {
+			avoid_actor_area 33
+			
+			number_of_objects 4
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			set_tight_grouping
+			group_placement_radius 1
+			
+			terrain_to_place_on DS_T_LANDMASS
+			avoid_actor_area 80
+			avoid_actor_area 9999
+			min_distance_to_players 15
+			max_distance_to_players 30
+			avoid_forest_zone 2
+			avoid_actor_area 10
+			avoid_actor_area 11
+			avoid_actor_area 12
+			
+			min_distance_group_placement 2
+			actor_area 13
+			actor_area_radius 8
+		}
+	endif
+
+		/* success code chain 1 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 13
+			find_closest
+			
+			actor_area 23
+			actor_area_radius 30
+		}
+		
+		/* success code chain 2 */
+		create_object DS_O_INVISIBLE {
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			actor_area_to_place_in 23
+			find_closest
+			min_distance_to_players 5
+			
+			actor_area 33
+			actor_area_radius 43
+		}
+		
+		/* 2nd backup secondary stone creation */
+		if DS_USE_BACKUPS
+			create_object STONE {
+				avoid_actor_area 33
+				
+				number_of_objects 4
+				number_of_groups 1
+				set_place_for_every_player
+				set_gaia_object_only
+				
+				set_tight_grouping
+				group_placement_radius 1
+				
+				terrain_to_place_on DS_T_LANDMASS
+				min_distance_to_players 15
+				max_distance_to_players 35
+				avoid_forest_zone 2
+				
+				min_distance_group_placement 2
+				actor_area 13
+				actor_area_radius 8
+			}
+		endif
+
+
+create_object DLC_RHINO {
+	number_of_objects 1
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 13
+	max_distance_to_players 16
+	avoid_actor_area 71
+	avoid_actor_area 80
+	avoid_forest_zone 2
+	
+	min_distance_group_placement 1
+	
+	actor_area 14
+	actor_area_radius 20
+}
+
+/* success code */
+create_object DS_O_INVISIBLE {
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	actor_area_to_place_in 14
+	find_closest
+	
+	actor_area 24
+	actor_area_radius 21
+}
+	
+	/* backup */
+	if DS_USE_BACKUPS
+		create_object DLC_RHINO {
+			avoid_actor_area 24
+			
+			number_of_objects 1
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			group_placement_radius 0
+			
+			terrain_to_place_on DS_T_LANDMASS
+			min_distance_to_players 11
+			max_distance_to_players 19
+			avoid_forest_zone 2
+			
+			min_distance_group_placement 1
+		}
+	endif
+
+create_object JAVELINA {
+	number_of_objects 1
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 13
+	max_distance_to_players 16
+	avoid_actor_area 71
+	avoid_actor_area 80
+	if DS_BOARS_SEPARATED
+		avoid_actor_area 14
+	endif
+	avoid_forest_zone 2
+	
+	min_distance_group_placement 1
+	
+	actor_area 15
+	actor_area_radius 20
+}
+
+/* success code */
+create_object DS_O_INVISIBLE {
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	actor_area_to_place_in 15
+	find_closest
+	
+	actor_area 25
+	actor_area_radius 21
+}
+	
+	/* backup */
+	if DS_USE_BACKUPS
+		create_object JAVELINA {
+			avoid_actor_area 25
+			
+			number_of_objects 1
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			group_placement_radius 0
+			
+			terrain_to_place_on DS_T_LANDMASS
+			min_distance_to_players 11
+			max_distance_to_players 19
+			avoid_forest_zone 2
+			
+			min_distance_group_placement 1
+		}
+	endif
+
+create_object DLC_GOAT {
+	number_of_objects 2
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 16
+	max_distance_to_players 21
+	if DS_SHEEP_EXTRA_ANTISTEAL
+		avoid_actor_area 71
+	endif
+	avoid_actor_area 80
+	avoid_forest_zone 1
+	
+	min_distance_group_placement 2
+	
+	actor_area 16
+	actor_area_radius 25
+}
+
+/* success code */
+create_object DS_O_INVISIBLE {
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	actor_area_to_place_in 16
+	find_closest
+	
+	actor_area 26
+	actor_area_radius 27
+}
+	
+	/* backup */
+	if DS_USE_BACKUPS
+		create_object DLC_GOAT {
+			avoid_actor_area 26
+			
+			number_of_objects 2
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			set_tight_grouping
+			group_placement_radius 1
+			
+			terrain_to_place_on DS_T_LANDMASS
+			min_distance_to_players 14
+			max_distance_to_players 25
+			avoid_forest_zone 1
+			
+			min_distance_group_placement 2
+			
+			actor_area 16
+			actor_area_radius 25
+		}
+	endif
+
+create_object DLC_GOAT {
+	number_of_objects 2
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 16
+	max_distance_to_players 21
+	if DS_SHEEP_EXTRA_ANTISTEAL
+		avoid_actor_area 71
+	endif
+	avoid_actor_area 80
+	if DS_SHEEP_SEPARATED
+		avoid_actor_area 16
+	endif
+	avoid_forest_zone 1
+	
+	min_distance_group_placement 2
+	
+	actor_area 17
+	actor_area_radius 25
+}
+
+/* success code */
+create_object DS_O_INVISIBLE {
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	actor_area_to_place_in 17
+	find_closest
+	
+	actor_area 27
+	actor_area_radius 27
+}
+	
+	/* backup */
+	if DS_USE_BACKUPS
+		create_object DLC_GOAT {
+			avoid_actor_area 27
+			
+			number_of_objects 2
+			number_of_groups 1
+			set_place_for_every_player
+			set_gaia_object_only
+			
+			set_tight_grouping
+			group_placement_radius 1
+			
+			terrain_to_place_on DS_T_LANDMASS
+			min_distance_to_players 14
+			max_distance_to_players 25
+			avoid_forest_zone 1
+			
+			min_distance_group_placement 2
+			
+			actor_area 17
+			actor_area_radius 25
+		}
+	endif
+
+create_object DLC_IBEX {
+	number_of_objects 2
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	actor_area_to_place_in 18
+	find_closest
+	min_distance_to_players 20
+	avoid_forest_zone 1
+	
+	min_distance_group_placement 2
+	
+	actor_area 19
+	actor_area_radius 20
+}
+
+/* success code */
+create_object DS_O_INVISIBLE {
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	actor_area_to_place_in 19
+	find_closest
+	
+	actor_area 29
+	actor_area_radius 27
+}
+	
+	/* backup */
+	create_object DLC_IBEX {
+		avoid_actor_area 29
+		
+		number_of_objects 2
+		number_of_groups 1
+		set_place_for_every_player
+		set_gaia_object_only
+		
+		set_tight_grouping
+		group_placement_radius 1
+		
+		min_distance_to_players 18
+		max_distance_to_players 25
+		avoid_forest_zone 1
+		
+		min_distance_group_placement 2
+		
+		actor_area 19
+		actor_area_radius 20
+	}

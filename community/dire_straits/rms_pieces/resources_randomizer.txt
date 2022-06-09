@@ -1,0 +1,53 @@
+/* this part should make resource locations a bit more unpredictable */
+	
+	/* whether players' boars try to avoid each other */
+	start_random
+		percent_chance 50
+			#define DS_BOARS_SEPARATED
+	end_random
+	
+	/* whether players' sheep 56 & 78 try to avoid each other */
+	start_random
+		percent_chance 50
+			#define DS_SHEEP_SEPARATED
+	end_random
+	
+	/* whether players' sheep 5-8 try to avoid the water areas a lot */
+	start_random
+		percent_chance 67
+			#define DS_SHEEP_EXTRA_ANTISTEAL
+	end_random
+
+/* quantity of piles of players' berries */
+start_random
+	percent_chance 20 #define DS_BERRIES_SIZE_5
+	percent_chance 40 #define DS_BERRIES_SIZE_6
+	percent_chance 20 #define DS_BERRIES_SIZE_7
+	percent_chance 20 #define DS_BERRIES_SIZE_8
+end_random
+
+/* quantity of piles of gold in each gold mine along the river */
+start_random
+	percent_chance 50 #define DS_COASTAL_GOLD_SIZE_3
+	percent_chance 50 #define DS_COASTAL_GOLD_SIZE_6
+end_random
+
+/* quantity of herds of deer far away from players */
+start_random
+	percent_chance 25 #define DS_NEUTRAL_DEER_SIZE_5
+	percent_chance 50 #define DS_NEUTRAL_DEER_SIZE_7
+	percent_chance 25 #define DS_NEUTRAL_DEER_SIZE_9
+end_random
+
+/* quantity of boar far away from players */
+start_random
+	percent_chance 25 #define DS_NEUTRAL_BOAR_PER_PLAYER_0
+	percent_chance 50 #define DS_NEUTRAL_BOAR_PER_PLAYER_1
+	percent_chance 25 #define DS_NEUTRAL_BOAR_PER_PLAYER_2
+end_random
+
+/* whether to spawn 1 cow per player far away from players along river */
+start_random
+	percent_chance 75
+		#define DS_NEUTRAL_COW
+end_random

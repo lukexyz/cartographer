@@ -1,0 +1,399 @@
+/*
+	global map objects
+	actor area range [200, 299]
+*/
+
+create_object DS_O_FOREST_FILL_TREE {
+	number_of_objects 1
+	number_of_groups 99999
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_FOREST
+}
+
+if DS_4_OR_MORE_PLAYERS
+	#const DS_BIG_FISH 450
+else
+	#const DS_BIG_FISH 455
+endif
+
+create_object DS_BIG_FISH {
+	number_of_objects 1
+	number_of_groups 9999
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_LAKE_CENTER_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+#const DS_SHORE_FISH_TROJAN 244
+
+create_object DS_SHORE_FISH_TROJAN {
+	second_object DLC_BOXTURTLE
+	
+	if DS_2_OR_FEWER_PLAYERS
+		number_of_objects 1
+		number_of_groups 999
+		group_placement_radius 0
+	else
+		number_of_objects 2
+		number_of_groups 999
+		group_placement_radius 1
+	endif
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+create_object DS_SHORE_FISH_TROJAN {
+	second_object SHORE_FISH
+	
+	if DS_2_OR_FEWER_PLAYERS
+		number_of_objects 1
+		number_of_groups 999
+		group_placement_radius 0
+	else
+		number_of_objects 2
+		number_of_groups 999
+		group_placement_radius 1
+	endif
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+create_object DS_SHORE_FISH_TROJAN {
+	second_object DLC_BOXTURTLE
+	
+	if DS_4_OR_FEWER_PLAYERS
+		number_of_objects 1
+		number_of_groups 999
+		group_placement_radius 0
+	else
+		number_of_objects 2
+		number_of_groups 999
+		group_placement_radius 1
+	endif
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+create_object DS_SHORE_FISH_TROJAN {
+	second_object SHORE_FISH
+	
+	if DS_4_OR_FEWER_PLAYERS
+		number_of_objects 1
+		number_of_groups 999
+		group_placement_radius 0
+	else
+		number_of_objects 2
+		number_of_groups 999
+		group_placement_radius 1
+	endif
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+create_object DS_SHORE_FISH_TROJAN {
+	second_object DLC_BOXTURTLE
+	
+	if DS_6_OR_FEWER_PLAYERS
+		number_of_objects 1
+		number_of_groups 999
+		group_placement_radius 0
+	else
+		number_of_objects 2
+		number_of_groups 999
+		group_placement_radius 1
+	endif
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+create_object DS_SHORE_FISH_TROJAN {
+	second_object SHORE_FISH
+	
+	if DS_6_OR_FEWER_PLAYERS
+		number_of_objects 1
+		number_of_groups 999
+		group_placement_radius 0
+	else
+		number_of_objects 2
+		number_of_groups 999
+		group_placement_radius 1
+	endif
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 2
+}
+
+create_object GOLD {
+	if DS_COASTAL_GOLD_SIZE_3
+		number_of_objects 3
+	elseif DS_COASTAL_GOLD_SIZE_4
+		number_of_objects 4
+	elseif DS_COASTAL_GOLD_SIZE_5
+		number_of_objects 5
+	elseif DS_COASTAL_GOLD_SIZE_6
+		number_of_objects 6
+	endif
+	if TINY_MAP
+		number_of_groups 4
+	else
+		number_of_groups 99
+	endif
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_COAST
+	min_distance_to_players 40
+	avoid_forest_zone 2
+	
+	if TINY_MAP
+		temp_min_distance_group_placement 30
+	elseif MEDIUM_MAP
+		temp_min_distance_group_placement 35
+	else
+		temp_min_distance_group_placement 40
+	endif
+	
+	min_distance_group_placement 2
+}
+
+create_object RELIC {
+	number_of_objects 1
+	if DS_4_OR_FEWER_PLAYERS
+		number_of_groups 3
+	else
+		number_of_groups 5
+	endif
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_COAST
+	min_distance_to_players 40
+	
+	if TINY_MAP
+		temp_min_distance_group_placement 27
+	elseif MEDIUM_MAP
+		temp_min_distance_group_placement 35
+	else
+		temp_min_distance_group_placement 40
+	endif
+
+	actor_area 201
+	actor_area_radius 25
+	min_distance_group_placement 1
+}
+
+if DS_4_OR_FEWER_PLAYERS
+	create_object RELIC {
+		number_of_objects 1
+		number_of_groups 2
+		
+		group_placement_radius 0
+		
+		terrain_to_place_on DS_T_LANDMASS
+		min_distance_to_players 40
+		avoid_actor_area 201
+		
+		temp_min_distance_group_placement 80
+		
+		min_distance_group_placement 1
+	}
+endif
+
+create_object JAGUAR {	
+	number_of_objects 1
+	if TINY_MAP
+		number_of_groups 2
+	elseif MEDIUM_MAP
+		number_of_groups 3
+	elseif LARGE_MAP
+		number_of_groups 4
+	else
+		number_of_groups 5
+	endif
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 45
+	
+	temp_min_distance_group_placement 25
+	
+	actor_area 202
+	actor_area_radius 25
+	min_distance_group_placement 1
+}
+
+create_object DLC_TIGER {
+	number_of_objects 1
+	if TINY_MAP
+		number_of_groups 2
+	elseif MEDIUM_MAP
+		number_of_groups 3
+	elseif LARGE_MAP
+		number_of_groups 4
+	else
+		number_of_groups 5
+	endif
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_LANDMASS
+	min_distance_to_players 45
+	avoid_actor_area 202
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 1
+}
+
+create_object DLC_CROCODILE {
+	number_of_objects 1
+	if TINY_MAP
+		number_of_groups 2
+	elseif MEDIUM_MAP
+		number_of_groups 3
+	elseif LARGE_MAP
+		number_of_groups 4
+	else
+		number_of_groups 5
+	endif
+	
+	group_placement_radius 0
+	
+	terrain_to_place_on DS_T_BEACH
+	min_distance_to_players 45
+	
+	temp_min_distance_group_placement 25
+	
+	min_distance_group_placement 1
+}
+
+if DS_NEUTRAL_COW
+	create_object DLC_WATERBUFFALO {
+		number_of_objects 1
+		number_of_groups 1
+		set_scaling_to_player_number
+		
+		group_placement_radius 0
+		
+		terrain_to_place_on DS_T_BEACH
+		min_distance_to_players 50
+		
+		temp_min_distance_group_placement 30
+		
+		min_distance_group_placement 1
+	}
+endif
+
+create_object GOLD {
+	number_of_objects 2
+	number_of_groups 2
+	set_scaling_to_player_number
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	avoid_forest_zone 2
+	min_distance_to_players 40
+	max_distance_to_other_zones 8
+	
+	temp_min_distance_group_placement 20
+	
+	min_distance_group_placement 2
+}
+
+create_object STONE {
+	number_of_objects 3
+	number_of_groups 2
+	set_scaling_to_player_number
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	terrain_to_place_on DS_T_LANDMASS
+	avoid_forest_zone 2
+	min_distance_to_players 40
+	max_distance_to_other_zones 8
+	
+	temp_min_distance_group_placement 20
+	
+	min_distance_group_placement 2
+}
+
+create_object DLC_ZEBRA {
+	if DS_NEUTRAL_DEER_SIZE_5
+		number_of_objects 5
+	elseif DS_NEUTRAL_DEER_SIZE_7
+		number_of_objects 7
+	elseif DS_NEUTRAL_DEER_SIZE_9
+		number_of_objects 9
+	endif
+	number_of_groups 1
+	set_scaling_to_player_number
+	
+	set_tight_grouping
+	group_placement_radius 3
+	
+	min_distance_to_players 45
+	max_distance_to_other_zones 5
+	avoid_forest_zone 1
+	
+	temp_min_distance_group_placement 50
+	
+	min_distance_group_placement 2
+}
+
+if DS_NEUTRAL_BOAR_PER_PLAYER_0
+else
+	create_object DLC_ELEPHANT {
+		number_of_objects 1
+		if DS_NEUTRAL_BOAR_PER_PLAYER_1
+			number_of_groups 1
+			temp_min_distance_group_placement 50
+		elseif DS_NEUTRAL_BOAR_PER_PLAYER_2
+			number_of_groups 2
+			temp_min_distance_group_placement 40
+		endif
+		set_scaling_to_player_number
+		
+		set_tight_grouping
+		group_placement_radius 0
+		
+		min_distance_to_players 55
+		max_distance_to_other_zones 5
+		avoid_forest_zone 1
+		
+		min_distance_group_placement 1
+	}
+endif

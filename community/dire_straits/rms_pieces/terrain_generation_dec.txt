@@ -1,0 +1,381 @@
+/*
+	This is all cosmetic stuff, mostly using new features in DE.
+*/
+
+
+create_terrain DS_T_LAKE_EDGE_WATER0 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LAKE_EDGE_WATER
+	
+	land_percent 99
+	number_of_clumps 999
+}
+
+create_terrain DS_T_LAKE_WATER0_1 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LAKE_WATER
+	
+	if DS_5_OR_MORE_LAKES
+		number_of_tiles 30
+		number_of_clumps 6
+	else
+		number_of_tiles 20
+		number_of_clumps 4
+	endif
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_LAKE_WATER0_2 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LAKE_WATER
+	
+	if DS_5_OR_MORE_LAKES
+		number_of_tiles 45
+		number_of_clumps 9
+	else
+		number_of_tiles 30
+		number_of_clumps 6
+	endif
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_LAKE_CENTER_WATER0 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LAKE_CENTER_WATER
+	
+	if DS_5_OR_MORE_LAKES
+		number_of_tiles 60
+		number_of_clumps 12
+	else
+		number_of_tiles 40
+		number_of_clumps 8
+	endif
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_SHALLOW2 {
+	terrain_mask 2
+	
+	base_terrain DS_T_SHALLOW
+	
+	if DS_5_OR_MORE_LAKES
+		if TINY_MAP
+			number_of_tiles 667
+		elseif MEDIUM_MAP
+			number_of_tiles 900
+		elseif LARGE_MAP
+			number_of_tiles 1185
+		else
+			number_of_tiles 1333
+		endif
+	else
+		if TINY_MAP
+			number_of_tiles 500
+		elseif MEDIUM_MAP
+			number_of_tiles 667
+		elseif LARGE_MAP
+			number_of_tiles 889
+		else
+			number_of_tiles 1000
+		endif
+	endif
+	
+	number_of_clumps 150
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_SHALLOW0_1 {
+	terrain_mask 1
+	
+	base_terrain DS_T_SHALLOW
+	
+	if DS_5_OR_MORE_LAKES
+		if TINY_MAP
+			number_of_tiles 300
+		elseif MEDIUM_MAP
+			number_of_tiles 400
+		elseif LARGE_MAP
+			number_of_tiles 533
+		else
+			number_of_tiles 600
+		endif
+	else
+		if TINY_MAP
+			number_of_tiles 225
+		elseif MEDIUM_MAP
+			number_of_tiles 300
+		elseif LARGE_MAP
+			number_of_tiles 400
+		else
+			number_of_tiles 450
+		endif
+	endif
+	
+	number_of_clumps 20
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_SHALLOW0_2 {
+	terrain_mask 1
+	
+	base_terrain DS_T_SHALLOW
+	
+	if DS_5_OR_MORE_LAKES
+		if TINY_MAP
+			number_of_tiles 300
+		elseif MEDIUM_MAP
+			number_of_tiles 400
+		elseif LARGE_MAP
+			number_of_tiles 533
+		else
+			number_of_tiles 600
+		endif
+	else
+		if TINY_MAP
+			number_of_tiles 225
+		elseif MEDIUM_MAP
+			number_of_tiles 300
+		elseif LARGE_MAP
+			number_of_tiles 400
+		else
+			number_of_tiles 450
+		endif
+	endif
+	
+	number_of_clumps 20
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_BEACH0_1 {
+	terrain_mask 1
+	
+	base_terrain DS_T_BEACH
+	
+	if DS_5_OR_MORE_LAKES
+		if TINY_MAP
+			number_of_tiles 600
+		elseif MEDIUM_MAP
+			number_of_tiles 800
+		elseif LARGE_MAP
+			number_of_tiles 1067
+		else
+			number_of_tiles 1200
+		endif
+	else
+		if TINY_MAP
+			number_of_tiles 450
+		elseif MEDIUM_MAP
+			number_of_tiles 600
+		elseif LARGE_MAP
+			number_of_tiles 800
+		else
+			number_of_tiles 900
+		endif
+	endif
+	
+	number_of_clumps 250
+	
+	clumping_factor 0
+}
+
+/* goes to all the free space that wasn't performed by BEACH0_1 */
+create_terrain DS_T_BEACH0_2 {
+	terrain_mask 1
+	
+	base_terrain DS_T_BEACH
+	
+	land_percent 99
+	number_of_clumps 999
+	
+	clumping_factor 0
+}
+
+
+create_terrain DS_T_COAST0_1 {
+	terrain_mask 1
+	
+	base_terrain DS_T_COAST
+	
+	if DS_5_OR_MORE_LAKES
+		if TINY_MAP
+			number_of_tiles 600
+		elseif MEDIUM_MAP
+			number_of_tiles 800
+		elseif LARGE_MAP
+			number_of_tiles 1067
+		else
+			number_of_tiles 1200
+		endif
+	else
+		if TINY_MAP
+			number_of_tiles 450
+		elseif MEDIUM_MAP
+			number_of_tiles 600
+		elseif LARGE_MAP
+			number_of_tiles 800
+		else
+			number_of_tiles 900
+		endif
+	endif
+	
+	number_of_clumps 250
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_COAST0_2 {
+	terrain_mask 1
+	
+	base_terrain DS_T_COAST
+	
+	if DS_5_OR_MORE_LAKES
+		if TINY_MAP
+			number_of_tiles 600
+		elseif MEDIUM_MAP
+			number_of_tiles 800
+		elseif LARGE_MAP
+			number_of_tiles 1067
+		else
+			number_of_tiles 1200
+		endif
+	else
+		if TINY_MAP
+			number_of_tiles 450
+		elseif MEDIUM_MAP
+			number_of_tiles 600
+		elseif LARGE_MAP
+			number_of_tiles 800
+		else
+			number_of_tiles 900
+		endif
+	endif
+	
+	number_of_clumps 80
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_LANDMASS0_2 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 1
+	number_of_clumps 30
+	
+	clumping_factor 0
+	
+	if DS_E_NONE
+		height_limits 1 7
+	elseif DS_E_2
+		height_limits 3 7
+	elseif DS_E_4
+		height_limits 5 7
+	endif
+}
+create_terrain DS_T_LANDMASS0_3 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 1
+	number_of_clumps 30
+	
+	clumping_factor 0
+	
+	if DS_E_NONE
+		height_limits 1 7
+	elseif DS_E_2
+		height_limits 3 7
+	elseif DS_E_4
+		height_limits 5 7
+	endif
+}
+
+create_terrain DS_T_LANDMASS0_1 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 10
+	number_of_clumps 100
+	
+	clumping_factor 0
+}
+
+
+create_terrain DS_T_LANDMASS0_2 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 2
+	number_of_clumps 60
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_LANDMASS0_3 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 2
+	number_of_clumps 60
+	
+	clumping_factor 0
+}
+
+
+create_terrain DS_T_LANDMASS0_4 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 3
+	number_of_clumps 90
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_LANDMASS0_5 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 3
+	number_of_clumps 90
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_LANDMASS0_6 {
+	terrain_mask 1
+	
+	base_terrain DS_T_LANDMASS
+	
+	land_percent 15
+	number_of_clumps 1000
+	
+	clumping_factor 0
+}
+
+create_terrain DS_T_FOREST0 {
+	terrain_mask 1
+	
+	base_terrain DS_T_FOREST
+	
+	land_percent 99
+	number_of_clumps 999
+}
+

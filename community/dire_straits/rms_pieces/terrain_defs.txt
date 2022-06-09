@@ -1,0 +1,54 @@
+
+
+/* these are used in land_generation. all of them will get replaced */
+#const DS_T_DEFAULT 0 /* default terrain when none is specified */
+#const DS_T_BASE 14 /* base terrain */
+#const DS_T_L 7 /* terrain of lakes in land generation */
+#const DS_T_HILL 33 /* terrain of extra hills used by elevation generation */
+#const DS_T_VALLEY 35 /* terrain of valleys used by elevation generation */
+
+/* temporary terrains. don't try to spawn it or it will get overridden. */
+#const DS_T_TEMP 47 /* Black */
+#const DS_T_TEMP2 40 /* Rock 1 */
+#const DS_T_TEMP3 8 /* Farm, Dead */
+
+#const DS_T_SHALLOW 4 /* SHALLOW */
+#const DS_T_SHALLOW2 59 /* DLC_NEWSHALLOW. decorative, but replaces layer */
+#const DS_T_LAKE_EDGE_WATER 95 /* Water, Green */
+#const DS_T_LAKE_WATER 58 /* Water, Azure */
+#const DS_T_LAKE_CENTER_WATER 23 /* Water, Medium */
+
+#const DS_T_BEACH 12 /* Grass 2 */
+#const DS_T_COAST 16 /* Grass, Other */
+#const DS_T_LANDMASS 9 /* Grass 3 */
+
+#const DS_T_FOREST 50 /* Acacia Forest. 50% density */
+#const DS_O_FOREST_FILL_TREE 1063 /* Acacia Tree */
+#const DS_O_STRAGGLER_TREE 1051 /* Dragon Tree */
+
+/* decorative */
+#const DS_T_LAKE_EDGE_WATER0 58 /* Water, Azure */
+#const DS_T_LAKE_WATER0_1 95 /* Water, Green */
+#const DS_T_LAKE_WATER0_2 23 /* Water, Medium */
+#const DS_T_LAKE_CENTER_WATER0 58 /* Water, Azure */
+
+#const DS_T_SHALLOW0_1 108 /* Beach, Wet Gravel */
+#const DS_T_SHALLOW0_2 70 /* Gravel, Default */
+
+#const DS_T_BEACH0_1 52 /* Beach, Vegetation */
+#const DS_T_BEACH0_2 70 /* Gravel, Default */
+
+#const DS_T_COAST0_1 27 /* Grass, Foundation */
+#const DS_T_COAST0_2 102 /* Gravel, Desert */
+
+#const DS_T_LANDMASS0_1 27 /* Grass, Foundation */
+
+#const DS_T_LANDMASS0_2 70 /* Gravel, Default */
+#const DS_T_LANDMASS0_3 102 /* Gravel, Desert */
+
+#const DS_T_LANDMASS0_4 71 /* Underbrush, Leaves */
+#const DS_T_LANDMASS0_5 76 /* Dirt, Mud */
+
+#const DS_T_LANDMASS0_6 100 /* Grass, Dry */
+
+#const DS_T_FOREST0 9 /* Grass 3 */

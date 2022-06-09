@@ -1,0 +1,58 @@
+/*
+
+	lake count: 3
+		DS_E_HIGH_2	14%	(15)
+		DS_E_HIGH_4	86%	(93)
+	
+	lake count: 4
+		DS_E_HIGH_2	26%	(37)
+		DS_E_HIGH_4	74%	(107)
+	
+	lake count: 5
+		DS_E_HIGH_2	31%	(29)
+		DS_E_HIGH_4	69%	(64)
+	
+	
+	lake count: 6
+		DS_E_HIGH_2	33%	(5)
+		DS_E_HIGH_4	67%	(10)
+
+	Max results in some canyons 100% of the time.
+		It's a roughly 75-25 split between a depth of 4 and a depth of 2.
+ 	Med results in no canyons about 25% the time.
+ 		The other 75%, it's always a depth of 2.
+*/
+
+if TINY_MAP
+	start_random
+		percent_chance 67
+			#define DS_E_MED
+	end_random
+else
+	start_random
+		percent_chance 35
+			#define DS_E_MAX
+		percent_chance 35
+			#define DS_E_MED
+	end_random
+endif
+
+/*
+	This approximately results in:
+		
+		Tiny:
+			50% no canyons
+			50% depth-2 canyons
+		
+		Other:
+			40% no canyons
+			35% depth-2 canyons
+			25% depth-4 canyons
+	
+	Ideally, there could be a whole range of options for canyon depth,
+		but RMS doesn's support variables, so the script size would increase a lot.
+	You could predetermine a depth or two for each layout,
+		but then that layout would always have the same range,
+		which (in rare instances) would leak information about which layout was chosen.
+*/
+

@@ -1,0 +1,44 @@
+#define TRUE
+
+/*
+	Throughout the project (even before this script is generated),
+		there is an assumption that the following settings are used:
+		1v1 is played on the 2-player size.
+		2v2 is played on the 4-player size.
+		3v3 is played on the 6-player size.
+		4v4 is played on the 8-player size.
+	
+	Using different settings will probably function, but with unexpected results.
+*/
+
+if TINY_MAP
+	#define DS_2_OR_MORE_PLAYERS
+	
+	#define DS_8_OR_FEWER_PLAYERS
+	#define DS_6_OR_FEWER_PLAYERS
+	#define DS_4_OR_FEWER_PLAYERS
+	#define DS_2_OR_FEWER_PLAYERS
+elseif MEDIUM_MAP
+	#define DS_2_OR_MORE_PLAYERS
+	#define DS_4_OR_MORE_PLAYERS
+	
+	#define DS_8_OR_FEWER_PLAYERS
+	#define DS_6_OR_FEWER_PLAYERS
+	#define DS_4_OR_FEWER_PLAYERS
+elseif LARGE_MAP
+	#define DS_2_OR_MORE_PLAYERS
+	#define DS_4_OR_MORE_PLAYERS
+	#define DS_6_OR_MORE_PLAYERS
+	
+	#define DS_8_OR_FEWER_PLAYERS
+	#define DS_6_OR_FEWER_PLAYERS
+else
+	#define DS_2_OR_MORE_PLAYERS
+	#define DS_4_OR_MORE_PLAYERS
+	#define DS_6_OR_MORE_PLAYERS
+	#define DS_8_OR_MORE_PLAYERS
+	
+	#define DS_8_OR_FEWER_PLAYERS
+endif
+
+#define DS_USE_BACKUPS

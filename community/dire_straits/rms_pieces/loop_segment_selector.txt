@@ -1,0 +1,138 @@
+/*
+	This ended up only getting used for a single layout.
+		After all the layout filtering and sorting and selection of the best maps, only
+		one "loop route" had enough balance or geometry variance to score high enough to
+		be included according to the algorithms used.
+		Loops would have been excluded because they did not have enough space for
+			8 players. Also, they would get excluded if other "similar" layouts scored
+			higher (similarity is based sharing most of the lakes + player spots).
+	
+	The idea is to increase the randomness without increasing the script size
+		by randomly removing one segment (connecting 2 lakes) of a river that
+		forms a complete loop. All lakes are still connected, but sometimes you
+		have to visit each lake to travel from the "first" one to the "last" one.
+*/
+
+start_random
+	percent_chance 19
+		#define DS_R_S0_3
+		#define DS_R_S1_3
+		#define DS_R_S2_3
+	
+	percent_chance 27
+		#define DS_R_S1_3
+		#define DS_R_S2_3
+	percent_chance 27
+		#define DS_R_S0_3
+		#define DS_R_S2_3
+	percent_chance 27
+		#define DS_R_S0_3
+		#define DS_R_S1_3
+end_random
+
+start_random
+	percent_chance 20
+		#define DS_R_S0_4
+		#define DS_R_S1_4
+		#define DS_R_S2_4
+		#define DS_R_S3_4
+	
+	percent_chance 20
+		#define DS_R_S1_4
+		#define DS_R_S2_4
+		#define DS_R_S3_4
+	percent_chance 20
+		#define DS_R_S0_4
+		#define DS_R_S2_4
+		#define DS_R_S3_4
+	percent_chance 20
+		#define DS_R_S0_4
+		#define DS_R_S1_4
+		#define DS_R_S3_4
+	percent_chance 20
+		#define DS_R_S0_4
+		#define DS_R_S1_4
+		#define DS_R_S2_4
+end_random
+
+start_random
+	percent_chance 20
+		#define DS_R_S0_5
+		#define DS_R_S1_5
+		#define DS_R_S2_5
+		#define DS_R_S3_5
+		#define DS_R_S4_5
+	
+	percent_chance 16
+		#define DS_R_S1_5
+		#define DS_R_S2_5
+		#define DS_R_S3_5
+		#define DS_R_S4_5
+	percent_chance 16
+		#define DS_R_S0_5
+		#define DS_R_S2_5
+		#define DS_R_S3_5
+		#define DS_R_S4_5
+	percent_chance 16
+		#define DS_R_S0_5
+		#define DS_R_S1_5
+		#define DS_R_S3_5
+		#define DS_R_S4_5
+	percent_chance 16
+		#define DS_R_S0_5
+		#define DS_R_S1_5
+		#define DS_R_S2_5
+		#define DS_R_S4_5
+	percent_chance 16
+		#define DS_R_S0_5
+		#define DS_R_S1_5
+		#define DS_R_S2_5
+		#define DS_R_S3_5
+end_random
+
+start_random
+	percent_chance 22
+		#define DS_R_S0_6
+		#define DS_R_S1_6
+		#define DS_R_S2_6
+		#define DS_R_S3_6
+		#define DS_R_S4_6
+		#define DS_R_S5_6
+
+	percent_chance 13
+		#define DS_R_S1_6
+		#define DS_R_S2_6
+		#define DS_R_S3_6
+		#define DS_R_S4_6
+		#define DS_R_S5_6
+	percent_chance 13
+		#define DS_R_S0_6
+		#define DS_R_S2_6
+		#define DS_R_S3_6
+		#define DS_R_S4_6
+		#define DS_R_S5_6
+	percent_chance 13
+		#define DS_R_S0_6
+		#define DS_R_S1_6
+		#define DS_R_S3_6
+		#define DS_R_S4_6
+		#define DS_R_S5_6
+	percent_chance 13
+		#define DS_R_S0_6
+		#define DS_R_S1_6
+		#define DS_R_S2_6
+		#define DS_R_S4_6
+		#define DS_R_S5_6
+	percent_chance 13
+		#define DS_R_S0_6
+		#define DS_R_S1_6
+		#define DS_R_S2_6
+		#define DS_R_S3_6
+		#define DS_R_S5_6
+	percent_chance 13
+		#define DS_R_S0_6
+		#define DS_R_S1_6
+		#define DS_R_S2_6
+		#define DS_R_S3_6
+		#define DS_R_S4_6
+end_random

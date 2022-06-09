@@ -1,0 +1,73 @@
+/*
+	per-player objects that don't attempt too many placing-restrictions
+	actor area range [100, 199]
+*/
+
+create_object TOWN_CENTER {
+	set_place_for_every_player
+	
+	group_placement_radius 0
+	
+	max_distance_to_players 0
+}
+
+create_object VILLAGER {
+	set_place_for_every_player
+	
+	group_placement_radius 0
+	
+	min_distance_to_players 6
+	max_distance_to_players 6
+	avoid_forest_zone 1
+	
+	actor_area 111
+	actor_area_radius 3
+	min_distance_group_placement 1
+}
+
+create_object SCOUT {
+	set_place_for_every_player
+	
+	group_placement_radius 0
+	
+	min_distance_to_players 9
+	max_distance_to_players 9
+	avoid_forest_zone 4
+	
+	actor_area 112
+	actor_area_radius 5
+	min_distance_group_placement 1
+}
+
+create_object DS_O_STRAGGLER_TREE {	
+	number_of_objects 1
+	number_of_groups 3
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	group_placement_radius 0
+	
+	min_distance_to_players 4
+	max_distance_to_players 4
+	avoid_actor_area 111
+	
+	min_distance_group_placement 1
+}
+
+create_object DLC_PIG {	
+	number_of_objects 4
+	number_of_groups 1
+	set_place_for_every_player
+	set_gaia_object_only
+	
+	set_tight_grouping
+	group_placement_radius 1
+	
+	max_distance_to_players 8
+	actor_area_to_place_in 112
+	avoid_actor_area 111
+	avoid_forest_zone 2
+	
+	min_distance_group_placement 2
+}
+

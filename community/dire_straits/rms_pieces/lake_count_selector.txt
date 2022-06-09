@@ -1,0 +1,65 @@
+
+if TINY_MAP
+	start_random
+		percent_chance 40
+			#define DS_3_LAKES
+		percent_chance 45
+			#define DS_4_LAKES
+		percent_chance 15
+			#define DS_5_LAKES
+	end_random
+elseif MEDIUM_MAP
+	start_random
+		percent_chance 30
+			#define DS_3_LAKES
+		percent_chance 40
+			#define DS_4_LAKES
+		percent_chance 28
+			#define DS_5_LAKES
+		percent_chance 2
+			#define DS_6_LAKES
+	end_random
+elseif LARGE_MAP
+	start_random
+		percent_chance 20
+			#define DS_3_LAKES
+		percent_chance 35
+			#define DS_4_LAKES
+		percent_chance 37
+			#define DS_5_LAKES
+		percent_chance 8
+			#define DS_6_LAKES
+	end_random
+else
+	start_random
+		percent_chance 10
+			#define DS_3_LAKES
+		percent_chance 30
+			#define DS_4_LAKES
+		percent_chance 45
+			#define DS_5_LAKES
+		percent_chance 15
+			#define DS_6_LAKES
+	end_random
+endif
+
+
+if DS_3_LAKES
+	#define DS_5_OR_FEWER_LAKES
+	#define DS_4_OR_FEWER_LAKES
+	#define DS_3_OR_FEWER_LAKES
+elseif DS_4_LAKES
+	#define DS_5_OR_FEWER_LAKES
+	#define DS_4_OR_FEWER_LAKES
+	
+	#define DS_4_OR_MORE_LAKES
+elseif DS_5_LAKES
+	#define DS_5_OR_FEWER_LAKES
+	
+	#define DS_4_OR_MORE_LAKES
+	#define DS_5_OR_MORE_LAKES
+elseif DS_6_LAKES
+	#define DS_4_OR_MORE_LAKES
+	#define DS_5_OR_MORE_LAKES
+	#define DS_6_OR_MORE_LAKES
+endif

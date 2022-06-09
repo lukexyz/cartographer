@@ -1,0 +1,15 @@
+<PLAYER_SETUP>
+direct_placement
+
+<LAND_GENERATION>
+base_terrain DS_T_BASE
+
+/*
+    This portion of the script can only be generated procedurally outside the AoE2 program.
+    The large number of layouts is responsible for the large script size.
+    In order to save space, these commands rely on the default values.
+        base_size is 3
+        terrain is GRASS (DS_T_DEFAULT)
+    Ideally, there would be a unique configuration for each map size, but that would
+        use more space. AoE2 parses this file very very slowly, so space is limited.
+*/

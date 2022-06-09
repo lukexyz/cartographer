@@ -1,0 +1,331 @@
+
+/* decoration start */
+
+create_object SEA_ROCKS_1 {
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	number_of_objects 1
+	number_of_groups 2
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SEA_ROCKS_2 {
+	
+	terrain_to_place_on DS_T_LAKE_WATER
+	
+	number_of_objects 1
+	number_of_groups 2
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+#const DS_DEC_SHALLOWS1 1351 /* Plant (Jungle) */
+#const DS_DEC_SHALLOWS2 1354 /* Plant (Rainforest) */
+
+create_object DS_DEC_SHALLOWS1 {
+	
+	terrain_to_place_on DS_T_SHALLOW2
+	
+	number_of_objects 2
+	number_of_groups 5
+	group_variance 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 1
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_SHALLOWS2 {
+	
+	terrain_to_place_on DS_T_SHALLOW2
+	
+	number_of_objects 2
+	number_of_groups 5
+	group_variance 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 1
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SEA_ROCKS_1 {
+	
+	terrain_to_place_on DS_T_SHALLOW
+	
+	number_of_objects 1
+	number_of_groups 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SEA_ROCKS_2 {
+	
+	terrain_to_place_on DS_T_SHALLOW2
+	
+	number_of_objects 1
+	number_of_groups 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SHIPWRECK {
+	
+	terrain_to_place_on DS_T_SHALLOW
+	
+	number_of_objects 1
+	number_of_groups 1
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SHIPWRECK2 {
+	
+	terrain_to_place_on DS_T_SHALLOW2
+	
+	number_of_objects 1
+	number_of_groups 1
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+#const DS_DEC_BEACH1 1351 /* Plant (Jungle) */
+#const DS_DEC_BEACH2 1354 /* Plant (Rainforest) */
+#const DS_DEC_BEACH4 1360 /* Plant (Bush, Green) */
+#const DS_DEC_BEACH5 1362 /* Plant (Shrub, Green) */
+#const DS_DEC_BEACH6 1364 /* Plant (Weeds) */
+#const DS_DEC_BEACH7 1366 /* Plant (Flowers) */
+
+create_object DS_DEC_BEACH1 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_BEACH2 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_BEACH4 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_BEACH5 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_BEACH6 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_BEACH7 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SEA_ROCKS_1 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object SEA_ROCKS_2 {
+	
+	terrain_to_place_on DS_T_BEACH
+	
+	number_of_objects 1
+	number_of_groups 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+#const DS_DEC_COAST1 1360 /* Plant (Bush, Green) */
+#const DS_DEC_COAST2 1362 /* Plant (Shrub, Green) */
+#const DS_DEC_COAST3 1364 /* Plant (Weeds) */
+
+create_object DS_DEC_COAST1 {
+	
+	terrain_to_place_on DS_T_COAST
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_COAST2 {
+	
+	terrain_to_place_on DS_T_COAST
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object DS_DEC_COAST3 {
+	
+	terrain_to_place_on DS_T_COAST
+	
+	number_of_objects 1
+	number_of_groups 3
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+create_object FLOWER_BED {
+	
+	terrain_to_place_on DS_T_COAST
+	
+	number_of_objects 2
+	number_of_groups 6
+	group_variance 1
+	set_scaling_to_map_size
+	
+	group_placement_radius 1
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+}
+
+#const DS_DEC_LANDMASS1 1366 /* Plant (Flowers) */
+
+create_object DLC_ANIMALSKELETON {
+	
+	terrain_to_place_on DS_T_LANDMASS
+	
+	number_of_objects 1
+	number_of_groups 5
+	set_scaling_to_map_size
+	
+	group_placement_radius 0
+	
+	temp_min_distance_group_placement 25
+	min_distance_group_placement 2
+	
+	min_distance_to_players 35
+}
+
+create_object DS_DEC_LANDMASS1 {
+	
+	terrain_to_place_on DS_T_LANDMASS
+	
+	number_of_objects 3
+	number_of_groups 7
+	group_variance 2
+	set_scaling_to_map_size
+	
+	group_placement_radius 1
+	
+	temp_min_distance_group_placement 30
+	
+	min_distance_to_players 30
+}
+
+/* decoration end */
