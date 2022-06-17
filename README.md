@@ -1,4 +1,4 @@
-# cartographer 🗺️🌎
+# `cartographer` 🗺️🌎
 Map makers toolkit
 
 ## Sections of a `RMS` Script
