@@ -22,9 +22,14 @@ Steam:
 Local (for me):
 `G:\Games\steamapps\common\AoE2DE\resources\_common\random-map-scripts`
 
+Default rms scripts are in:  
+`steamapps\common\AoE2DE\resources\_common\drs\gamedata_x2`
+
 ### Sym Link scripts from git repo to game folder
 
-`mklink "[...]\cartographer\cartographer.rms" "G:\Games\steamapps\common\AoE2DE\resources\_common\random-map-scripts\cartographer.rms"`
+`mklink "G:\Games\steamapps\common\AoE2DE\resources\_common\random-map-scripts\Cartographer.rms" "D:\python\cartographer\maps\Cartographer.rms"`
+
+mklink "G:\Games\steamapps\common\AoE2DE\resources_common\random-map-scripts\Arena.rms" "D:\python\cartographer\maps\Arena.rms"
 
 ## References
 
