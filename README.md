@@ -31,6 +31,9 @@ Default rms scripts are in:
 
 mklink "G:\Games\steamapps\common\AoE2DE\resources_common\random-map-scripts\Arena.rms" "D:\python\cartographer\maps\Arena.rms"
 
+### Where to find Standard Random Map Scripts
+**DE (Steam):** `AoE2DE\resources\_common\drs\gamedata_x2`
+
 ## References
 
 - Guide https://docs.google.com/document/d/1jnhZXoeL9mkRUJxcGlKnO98fIwFKStP_OBozpr0CHXo/edit#

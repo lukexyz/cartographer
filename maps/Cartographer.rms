@@ -1,27 +1,30 @@
 
-/* Luke */
+/* Catographer - Learner Map v0.1 */
 
 <PLAYER_SETUP>
-  random_placement 
+  grouped_by_team
 	ai_info_map_type ARENA 0 0 0
+  if REGICIDE
+    #define KINGGAME
 
+/**************************************************************/
 <LAND_GENERATION>
+/**************************************************************/
 
 base_terrain PINE_FOREST
-create_land
-{            
-  terrain_type                     LAYER_B
-land_percent                  60 
-base_size                     10
-left_border                   18
-right_border                  18
-top_border                    18
-bottom_border                 18
-zone 1
+
+create_land {            
+  terrain_type                  LAYER_B
+  land_percent                  60 
+  base_size                     10
+  left_border                   18
+  right_border                  18
+  top_border                    18
+  bottom_border                 18
+  zone 1
 }
 
-create_player_lands 
-{            
+create_player_lands {            
   terrain_type                     LAYER_A
   land_percent                     20
   base_size                        12
@@ -34,41 +37,40 @@ create_player_lands
   circle_radius 38 0
 }
 
-/* *********************************** */
+/**************************************************************/
 <TERRAIN_GENERATION>
+/**************************************************************/
 
-create_terrain WOODIES_B
-{
-  base_terrain                   LAYER_B
-  spacing_to_other_terrain_types 5
-  land_percent                   1
-  number_of_clumps               3
-  set_avoid_player_start_areas     
-  set_scale_by_groups
-}
 
-create_terrain LAYER_C
-{
-  base_terrain                   LAYER_A
-  number_of_clumps               12
-  spacing_to_other_terrain_types 0
-  land_percent                   10
-  set_scale_by_groups
-}
 
+/**************************************************************/
 <OBJECTS_GENERATION>
+/**************************************************************/
 
-#define GNR_NORMALTC
-#define GNR_STARTVILLS
-#define GNR_CLASSICSCOUT
-#define GNR_ARENAWALL
-#include_drs GeneratingObjects.inc
-
-
-create_object TOWN_CENTER
-{
+create_object TOWN_CENTER {
   set_place_for_every_player
   group_placement_radius 18
   min_distance_to_player 0
   max_distance_to_player 0
 }
+
+create_object PALISADE_WALL {
+  set_place_for_every_player
+	min_distance_to_players 15
+	max_distance_to_players 15
+}
+
+create_object PALISADE_WALL {
+	set_place_for_every_player
+	min_distance_to_players 20
+	max_distance_to_players 20
+}
+
+if KINGGAME 	/* const. defined in player setup */
+    create_object KING
+    {
+        set_place_for_every_player
+        min_distance_to_players 6
+        max_distance_to_players 7
+    }
+endif

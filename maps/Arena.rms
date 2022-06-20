@@ -259,7 +259,6 @@ terrain_mask 1
 <OBJECTS_GENERATION>
 
 
-
 #define GNR_NORMALTC
 #define GNR_STARTVILLS
 #define GNR_CLASSICSCOUT
