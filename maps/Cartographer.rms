@@ -1,6 +1,8 @@
 
 /* Catographer - Learner Map v0.1 */
 
+/* NOTE BUG (DE): Water animation persists across repeated generations.  Disable animated water in the options to avoid this visual distraction. */
+
 <PLAYER_SETUP>
   grouped_by_team
 	ai_info_map_type ARENA 0 0 0
@@ -13,8 +15,8 @@
 
 base_terrain PINE_FOREST
 
-create_land {            
-  terrain_type                  LAYER_B
+create_land {
+  terrain_type                  GRASS
   land_percent                  60 
   base_size                     10
   left_border                   18
@@ -23,6 +25,14 @@ create_land {
   bottom_border                 18
   zone 1
 }
+
+
+create_land {  /* Example: Create a lake in the center */
+	terrain_type WATER
+	land_percent 10
+  land_position 50 50
+}
+
 
 create_player_lands {            
   terrain_type                     LAYER_A
@@ -49,21 +59,20 @@ create_player_lands {
 
 create_object TOWN_CENTER {
   set_place_for_every_player
-  group_placement_radius 18
-  min_distance_to_player 0
   max_distance_to_player 0
 }
 
-create_object PALISADE_WALL {
+
+create_object PALISADE_WALL { /* internal pallisade wall */
   set_place_for_every_player
-	min_distance_to_players 15
-	max_distance_to_players 15
+	min_distance_to_players 8
+	max_distance_to_players 8
 }
 
-create_object PALISADE_WALL {
+create_object PALISADE_WALL { /* external pallisade wall (2) */
 	set_place_for_every_player
-	min_distance_to_players 20
-	max_distance_to_players 20
+	min_distance_to_players 13
+	max_distance_to_players 13
 }
 
 if KINGGAME 	/* const. defined in player setup */
@@ -74,3 +83,4 @@ if KINGGAME 	/* const. defined in player setup */
         max_distance_to_players 7
     }
 endif
+
