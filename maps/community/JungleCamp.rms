@@ -1,0 +1,711 @@
+/*
+
+	JungleCamp by Roger The Shrubber
+	Created: 2022-06-12
+	
+	Version: 1.0
+*/
+
+#const MAP_TERRAIN_DESSERT_CRACKED 45
+#const MAP_TERRAIN_WATER_AZURE 58
+
+
+#const BASE_TERRAIN 58
+#const JUNGLE 17
+#const Z_1_TERRAIN 45
+#const Z_2_TERRAIN 41
+#const Z_2_1_TERRAIN 5
+#const MINERAL_TERRAIN  102
+
+
+#const ANIMAL_TERRAIN 100
+#const RELIC_TERRAIN 70
+
+#const HERDABLE_A 1060 /* GOAT */
+#const FORAGE_A 59
+#const HUNTABLE_A 1026 /* OSTRICH */
+#const HUNTABLE_B 936 /* ELEPHANT */
+#const HUNTABLE_C 1019 /* ZEBRA */
+
+#const ANIMAL_A 1029 /* LION */
+
+#const SHORE_FISH_A 69 /* SHORE FISH */
+
+#const DEEP_FISH_A 455 /* DORADO */
+#const DEEP_FISH_B 450 /* MARLIN */
+
+#const MARKER_A 600
+
+
+<PLAYER_SETUP>
+	direct_placement
+
+<LAND_GENERATION>
+	base_terrain BASE_TERRAIN
+	enable_waves 0
+
+
+start_random
+	percent_chance 25		
+		create_land {
+			terrain_type Z_1_TERRAIN
+			border_fuzziness: 90
+			land_percent 96 
+			left_border 10
+		}
+		
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 100 5
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 100 50
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 100 95
+			base_elevation 2
+			min_placement_distance  10
+		} 
+
+	percent_chance 25  	
+		create_land {
+			terrain_type Z_1_TERRAIN
+			border_fuzziness: 90
+			land_percent 96 
+			right_border 10
+		}
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 0 5
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 0 50
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 0 95
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+	percent_chance 25      		
+		create_land {
+			terrain_type Z_1_TERRAIN
+			border_fuzziness: 90
+			land_percent 91 
+			left_border 15
+		}
+			
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 100 5
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 100 50
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 100 95
+			base_elevation 2
+			min_placement_distance  10
+		} 
+
+	percent_chance 25  
+		create_land {
+			terrain_type Z_1_TERRAIN
+			border_fuzziness: 90
+			land_percent 91 
+			right_border 15
+		}
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 0 5
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 0 50
+			base_elevation 2
+			min_placement_distance  10
+		} 
+	
+		create_land {
+			terrain_type MINERAL_TERRAIN
+			base_size 5
+			number_of_tiles 0
+			land_position 0 95
+			base_elevation 2
+			min_placement_distance  10
+		} 
+end_random
+
+ start_random
+	percent_chance 25     
+		create_land {
+			terrain_type DESERT
+			base_size 8
+			number_of_tiles 0
+			land_position rnd(35,40) 15
+			assign_to_player 1
+		}
+
+		create_land {
+			terrain_type DESERT
+			base_size 8
+			number_of_tiles 0
+			land_position rnd(35,40) 85
+			assign_to_player 2
+		}
+	percent_chance 25     
+		create_land {
+			terrain_type DESERT
+			base_size 10
+			number_of_tiles 0
+			land_position rnd(35,40) 20
+			assign_to_player 1
+		}
+
+		create_land {
+			terrain_type DESERT
+			base_size 10
+			number_of_tiles 0
+			land_position rnd(35,40) 80
+			assign_to_player 2
+		}
+	percent_chance 25     
+		create_land {
+			terrain_type DESERT
+			base_size 9
+			number_of_tiles 0
+			land_position rnd(65,70) 30
+			assign_to_player 1
+		}
+
+		create_land {
+			terrain_type DESERT
+			base_size 9
+			number_of_tiles 0
+			land_position rnd(65,70) 70
+			assign_to_player 2
+		}
+	percent_chance 25     
+		create_land {
+			terrain_type DESERT
+			base_size 10
+			number_of_tiles 0
+			land_position rnd(65,70) 20
+			assign_to_player 1
+		}
+
+		create_land {
+			terrain_type DESERT
+			base_size 10
+			number_of_tiles 0
+			land_position rnd(65,70) 80
+			assign_to_player 2
+		} 
+end_random 
+
+/* PLAYER EXTRA MINERAL */
+
+create_land {
+	terrain_type MINERAL_TERRAIN
+	base_size 5
+	number_of_tiles 0
+	land_position rnd(40,60) 100
+	base_elevation 2
+	min_placement_distance  10
+}
+
+create_land {
+	terrain_type MINERAL_TERRAIN
+	base_size 5
+	number_of_tiles 0
+	land_position rnd(40,60) 0
+	base_elevation 2
+	min_placement_distance  10
+} 
+
+	
+/* SAVANNAH */    
+create_land {
+	terrain_type ANIMAL_TERRAIN
+	number_of_tiles 300
+	land_position 30 50
+} 
+
+create_land {
+	terrain_type ANIMAL_TERRAIN
+	number_of_tiles 300
+	land_position 70 50
+} 
+
+/* RELIC ZONE */
+create_land {
+	terrain_type MINERAL_TERRAIN
+	number_of_tiles 60
+	land_position 50 50
+	base_elevation 2
+}
+
+create_land {
+	terrain_type RELIC_TERRAIN
+	base_size 1
+	number_of_tiles 0
+	land_position 50 50
+	base_elevation 3
+}
+	
+<ELEVATION_GENERATION> 
+create_elevation 1 {
+	base_terrain Z_1_TERRAIN
+	number_of_tiles 100000
+	number_of_clumps 1
+	enable_balanced_elevation	
+}		 
+
+create_elevation 2 {
+	base_terrain Z_1_TERRAIN
+	number_of_tiles 7000
+	number_of_clumps 100
+}		  
+
+
+<TERRAIN_GENERATION>
+create_terrain JUNGLE {
+	base_terrain DESERT
+	number_of_tiles 2000
+	number_of_clumps 4
+}
+
+create_terrain DESERT {
+	base_terrain JUNGLE
+	number_of_tiles 10000
+	number_of_clumps 1000
+	spacing_to_other_terrain_types 1
+}
+create_terrain Z_2_TERRAIN {
+	base_terrain Z_1_TERRAIN
+	land_percent 80
+	number_of_clumps 2
+	clumping_factor 25
+	set_avoid_player_start_areas
+}
+
+create_terrain JUNGLE  {
+	base_terrain Z_2_TERRAIN
+	number_of_tiles rnd(1200,2300)
+	number_of_clumps rnd(40,50)
+	clumping_factor 10
+	set_avoid_player_start_areas
+	spacing_to_other_terrain_types 6
+} 
+
+
+#const ANIMAL_WATER 23
+
+create_terrain ANIMAL_WATER  {
+	base_terrain ANIMAL_TERRAIN
+	number_of_tiles 30
+	number_of_clumps 2
+	set_avoid_player_start_areas
+} 
+
+<CONNECTION_GENERATION>
+create_connect_all_players_land {
+	/* default_terrain_replacement Z_2_TERRAIN */
+}
+
+<OBJECTS_GENERATION>
+create_actor_area 60 60 300 5
+create_actor_area 33 60 301 10
+create_actor_area 85 60 302 10
+
+
+/* PLAYER RESOURCES START */
+create_object TOWN_CENTER
+{
+  set_place_for_every_player
+  group_placement_radius     18
+  min_distance_to_players    0
+  max_distance_to_players    0
+  actor_area 100
+  actor_area_radius 5
+}
+
+create_object VILLAGER {
+	set_place_for_every_player
+	actor_area_to_place_in 100
+    max_distance_to_players  4
+  	actor_area 101
+}
+
+create_object SCOUT
+{
+  number_of_objects             1
+  set_place_for_every_player
+  min_distance_to_players       12
+  max_distance_to_players       16
+  min_distance_to_players       6
+  max_distance_to_players       6
+}
+
+
+create_object HERDABLE_A
+{
+	
+	start_random
+		percent_chance 15 
+			number_of_objects 1
+		percent_chance 15 
+			number_of_objects 3
+		percent_chance 70 
+			number_of_objects 2
+	end_random
+   set_gaia_object_only
+   set_place_for_every_player
+   actor_area_to_place_in 100
+   avoid_actor_area 101   
+   min_distance_to_players  4
+   max_distance_to_players  7
+   actor_area 102
+} 
+
+create_object FORAGE_A 
+{
+    number_of_objects 3
+    set_gaia_object_only
+    set_place_for_every_player
+   	actor_area_to_place_in 100
+   	avoid_actor_area 101   
+   	avoid_actor_area 102
+   	actor_area 103
+	set_tight_grouping
+   	min_distance_to_players  5
+   	max_distance_to_players  6
+}
+
+create_object HERDABLE_A
+{
+	start_random
+		percent_chance 15 
+			number_of_objects 1
+		percent_chance 85 
+			number_of_objects 2
+	end_random
+   set_gaia_object_only
+   set_tight_grouping
+   set_place_for_every_player
+   avoid_actor_area 100   
+   avoid_actor_area 101      
+   avoid_actor_area 102
+   avoid_actor_area 103  
+   min_distance_to_players  14
+   max_distance_to_players  15
+   actor_area 104
+   actor_area_radius 5
+} 
+
+
+create_object HERDABLE_A
+{
+	start_random
+		percent_chance 15 
+			number_of_objects 1
+		percent_chance 85 
+			number_of_objects 2
+	end_random
+   set_gaia_object_only
+   set_tight_grouping
+   set_place_for_every_player
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103  
+   avoid_actor_area 104 
+   min_distance_to_players  13
+   max_distance_to_players  14
+   actor_area 105
+   actor_area_radius 5
+} 
+
+create_object HUNTABLE_B
+{
+   number_of_objects 1
+   set_gaia_object_only
+   set_tight_grouping
+   set_place_for_every_player
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103  
+   avoid_actor_area 104  
+   avoid_actor_area 105
+   min_distance_to_players  18
+   max_distance_to_players  20
+   actor_area 106
+}
+
+
+create_object HUNTABLE_A
+{
+	start_random
+		percent_chance 15 
+			number_of_objects 2
+		percent_chance 85 
+			number_of_objects 5
+	end_random
+   set_gaia_object_only
+   set_loose_grouping
+   set_place_for_every_player
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103  
+   avoid_actor_area 104  
+   avoid_actor_area 105  
+   avoid_actor_area 106
+   min_distance_to_players  20
+   max_distance_to_players  21
+   actor_area 107
+   actor_area_radius 5
+}
+
+
+create_object GOLD
+{
+    number_of_objects 3
+    set_gaia_object_only
+    set_place_for_every_player
+	set_tight_grouping
+   	min_distance_to_players  14
+   	max_distance_to_players  15
+   	avoid_forest_zone 2
+}
+
+
+create_object STONE
+{
+    number_of_objects 3
+    set_gaia_object_only
+    set_place_for_every_player
+	set_tight_grouping
+   	min_distance_to_players  14
+   	max_distance_to_players  15
+   	avoid_forest_zone 2
+}
+
+/* PLAYER RESOURCES END */
+
+/* SAVANNAH */
+create_object HUNTABLE_C
+{
+   set_gaia_object_only
+   number_of_objects 9
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103   
+   avoid_actor_area 104  
+   actor_area 401
+   actor_area_to_place_in 301
+   avoid_forest_zone 1
+   terrain_to_place_on ANIMAL_TERRAIN
+}
+
+create_object ANIMAL_A
+{
+   set_gaia_object_only
+   number_of_objects 3
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103   
+   avoid_actor_area 104  
+   actor_area 402
+   actor_area_to_place_in 401
+   avoid_forest_zone 1
+   terrain_to_place_on ANIMAL_TERRAIN
+}
+
+create_object HUNTABLE_C
+{
+   set_gaia_object_only
+   number_of_objects 9
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103   
+   avoid_actor_area 104  
+   actor_area 403
+   actor_area_to_place_in 302
+   avoid_forest_zone 1
+   terrain_to_place_on ANIMAL_TERRAIN
+}
+
+create_object ANIMAL_A
+{
+   set_gaia_object_only
+   number_of_objects 3
+   avoid_actor_area 100   
+   avoid_actor_area 101   
+   avoid_actor_area 102   
+   avoid_actor_area 103   
+   avoid_actor_area 104  
+   actor_area 404
+   actor_area_to_place_in 403
+   avoid_forest_zone 1
+   terrain_to_place_on ANIMAL_TERRAIN
+}
+
+/* FISH */
+create_object DEEP_FISH_A
+{
+  number_of_objects             1
+  number_of_groups 99999
+  set_gaia_object_only
+
+  	start_random
+		percent_chance 30 
+  			temp_min_distance_group_placement  rnd(3,7)
+		percent_chance 70 
+  			temp_min_distance_group_placement  rnd(3,50)
+	end_random
+  max_distance_to_other_zones         3
+}
+
+create_object DEEP_FISH_B
+{
+  number_of_objects             1
+  number_of_groups 99999
+  set_gaia_object_only
+  temp_min_distance_group_placement  50
+  max_distance_to_other_zones         3
+}
+
+
+create_object SHORE_FISH_A
+{
+  number_of_objects             1
+  number_of_groups 99999
+  temp_min_distance_group_placement  rnd(15,60)
+  set_gaia_object_only
+}
+
+
+create_object GOLD {
+	set_tight_grouping
+	number_of_objects 5
+	number_of_groups 20
+	terrain_to_place_on MINERAL_TERRAIN
+  	temp_min_distance_group_placement 30
+  	set_gaia_object_only
+	avoid_all_actor_areas
+	actor_area 602
+	actor_area_radius 2
+}
+
+create_object STONE {
+	set_tight_grouping
+	number_of_objects rnd(5,8)
+	number_of_groups 20
+	terrain_to_place_on MINERAL_TERRAIN
+  	temp_min_distance_group_placement 30
+  	set_gaia_object_only
+	avoid_all_actor_areas
+	actor_area 603
+	actor_area_radius 2
+}
+
+create_object RELIC {
+	number_of_objects 1
+	number_of_groups rnd(1,6)
+	terrain_to_place_on RELIC_TERRAIN
+  	set_gaia_object_only
+  	temp_min_distance_group_placement 1
+}
+
+start_random
+	percent_chance 75 #define SPAWN_SAVANNAH_RELICS
+end_random
+
+if SPAWN_SAVANNAH_RELICS
+	create_object RELIC {
+		number_of_objects 1
+		number_of_groups 2
+		terrain_to_place_on ANIMAL_TERRAIN
+		set_gaia_object_only
+		temp_min_distance_group_placement 35
+	}
+endif
+
+
+
+/* DECORATIONS */
+create_object HAWK {
+	number_of_objects 1
+	number_of_groups 30
+  	temp_min_distance_group_placement 20
+  	set_gaia_object_only
+	set_avoid_player_start_areas
+}
+
+
+create_object ROCK {
+	number_of_objects 1
+	number_of_groups 10
+  	temp_min_distance_group_placement 50
+  	set_gaia_object_only
+	set_avoid_player_start_areas
+	terrain_to_place_on Z_2_TERRAIN
+}
+

@@ -1,6 +1,4 @@
-
 /* Catographer - Learner Map v0.1 */
-
 /* NOTE BUG (DE): Water animation persists across repeated generations.  Disable animated water in the options to avoid this visual distraction. */
 
 <PLAYER_SETUP>
@@ -8,6 +6,7 @@
 	ai_info_map_type ARENA 0 0 0
   if REGICIDE
     #define KINGGAME
+
 
 /**************************************************************/
 <LAND_GENERATION>
@@ -26,13 +25,11 @@ create_land {
   zone 1
 }
 
-
 create_land {  /* Example: Create a lake in the center */
 	terrain_type WATER
 	land_percent 10
   land_position 50 50
 }
-
 
 create_player_lands {            
   terrain_type                     LAYER_A
@@ -47,10 +44,10 @@ create_player_lands {
   circle_radius 38 0
 }
 
+
 /**************************************************************/
 <TERRAIN_GENERATION>
 /**************************************************************/
-
 
 
 /**************************************************************/
@@ -61,7 +58,6 @@ create_object TOWN_CENTER {
   set_place_for_every_player
   max_distance_to_player 0
 }
-
 
 create_object PALISADE_WALL { /* internal pallisade wall */
   set_place_for_every_player
@@ -83,4 +79,3 @@ if KINGGAME 	/* const. defined in player setup */
         max_distance_to_players 7
     }
 endif
-

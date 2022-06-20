@@ -33,14 +33,14 @@ endif
 
 create_land
 {            
-  terrain_type                     LAYER_B
-land_percent                  60 
-base_size                     10
-left_border                   18
-right_border                  18
-top_border                    18
-bottom_border                 18
-zone 1
+  terrain_type                  LAYER_B
+  land_percent                  60 
+  base_size                     10
+  left_border                   18
+  right_border                  18
+  top_border                    18
+  bottom_border                 18
+  zone 1
 }
 
 create_player_lands 
