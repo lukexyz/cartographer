@@ -1,12 +1,10 @@
-/* Catographer - Learner Map v0.1 */
+/* Catographer - Learner Map v1.01 */
 /* NOTE BUG (DE): Water animation persists across repeated generations.  Disable animated water in the options to avoid this visual distraction. */
 
 <PLAYER_SETUP>
   grouped_by_team
-	ai_info_map_type ARENA 0 0 0
-  if REGICIDE
-    #define KINGGAME
-
+  ai_info_map_type ARENA 0 0 0
+  
 
 /**************************************************************/
 <LAND_GENERATION>
@@ -14,10 +12,10 @@
 
 base_terrain PINE_FOREST
 
-create_land {
+create_land { /* add central grass zone */
   terrain_type                  GRASS
   land_percent                  60 
-  base_size                     10
+  base_size                     8
   left_border                   18
   right_border                  18
   top_border                    18
@@ -25,24 +23,27 @@ create_land {
   zone 1
 }
 
+
 create_land {  /* Example: Create a lake in the center */
 	terrain_type WATER
-	land_percent 10
+	land_percent 1
   land_position 50 50
 }
 
-create_player_lands {            
-  terrain_type                     LAYER_A
+
+create_player_lands { /* base area cut out of trees */       
+  terrain_type                     TERRAIN_PLAY
   land_percent                     20
   base_size                        12
-  left_border                      3
-  right_border                     3
-  top_border                       3
-  bottom_border                    3
+  left_border                      2
+  right_border                     2
+  top_border                       2
+  bottom_border                    2
   border_fuzziness                 1
   other_zone_avoidance_distance    30
   circle_radius 38 0
 }
+
 
 
 /**************************************************************/
@@ -56,20 +57,28 @@ create_player_lands {
 
 create_object TOWN_CENTER {
   set_place_for_every_player
-  max_distance_to_player 0
+  min_distance_to_players 0
+  max_distance_to_players 0
+  terrain_to_place_on TERRAIN_PLAY
 }
+  
 
 create_object PALISADE_WALL { /* internal pallisade wall */
   set_place_for_every_player
-	min_distance_to_players 8
-	max_distance_to_players 8
+	min_distance_to_players 7
+	max_distance_to_players 7
 }
+
 
 create_object PALISADE_WALL { /* external pallisade wall (2) */
 	set_place_for_every_player
-	min_distance_to_players 13
-	max_distance_to_players 13
+	min_distance_to_players 15
+	max_distance_to_players 15
 }
+
+
+if REGICIDE
+  #define KINGGAME
 
 if KINGGAME 	/* const. defined in player setup */
     create_object KING
@@ -79,3 +88,4 @@ if KINGGAME 	/* const. defined in player setup */
         max_distance_to_players 7
     }
 endif
+
