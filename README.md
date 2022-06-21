@@ -1,8 +1,8 @@
-# `cartographer` 🗺️🌎
+# `cartographer` 🗺️
 
-Map makers toolkit
+Map making toolkit for `Aoe2`
 
-## Sections of a `RMS` Script
+## 🌎 Sections of a `RMS` Script 🌎 
 
 ```
 1. <PLAYER_SETUP>
@@ -15,26 +15,25 @@ Map makers toolkit
 
 Sections are not required to be in order, and not all sections are required for map generation.
 
-## Script location
+## Script locations
 
 Steam:
 `steamapps\common\AoE2DE\resources\_common\random-map-scripts`  
 Local (for me):
 `G:\Games\steamapps\common\AoE2DE\resources\_common\random-map-scripts`
 
-Default rms scripts are in:  
-`steamapps\common\AoE2DE\resources\_common\drs\gamedata_x2`
+### Where to find Standard Random Map Scripts
+**DE (Steam):** `AoE2DE\resources\_common\drs\gamedata_x2`
 
 ### Sym Link scripts from git repo to game folder
 
 `mklink "G:\Games\steamapps\common\AoE2DE\resources\_common\random-map-scripts\Cartographer.rms" "D:\python\cartographer\maps\Cartographer.rms"`
 
-mklink "G:\Games\steamapps\common\AoE2DE\resources_common\random-map-scripts\Arena.rms" "D:\python\cartographer\maps\Arena.rms"
+`mklink "G:\Games\steamapps\common\AoE2DE\resources_common\random-map-scripts\Arena.rms" "D:\python\cartographer\maps\Arena.rms"`
 
-### Where to find Standard Random Map Scripts
-**DE (Steam):** `AoE2DE\resources\_common\drs\gamedata_x2`
 
-## References
+
+## ⚔️ References
 
 - Guide https://docs.google.com/document/d/1jnhZXoeL9mkRUJxcGlKnO98fIwFKStP_OBozpr0CHXo/edit#
 - VScode extension https://marketplace.visualstudio.com/items?itemName=anda.rms-check-vscode
