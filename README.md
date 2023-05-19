@@ -2,6 +2,17 @@
 
 Map making toolkit for `Aoe2`
 
+
+<p align="center">
+  <img src="media\cambodiasketch_2013.jpg" style="width: 50%; height: 50%">
+</p>
+
+<p align="center">
+My sketches from 2013 
+</p>
+
+[🔗 reddit discussion](https://old.reddit.com/r/aoe2/comments/1346cen/found_my_old_aoe2_drawings_from_2013/) 
+
 ## 🌎 Sections of a `RMS` Script 🌎 
 
 ```
