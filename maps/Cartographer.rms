@@ -26,7 +26,7 @@ create_land { /* add central grass zone */
 
 create_land {  /* Example: Create a lake in the center */
 	terrain_type WATER
-	land_percent 1
+	land_percent 5
   land_position 50 50
 }
 
@@ -69,11 +69,16 @@ create_object PALISADE_WALL { /* internal pallisade wall */
 	max_distance_to_players 7
 }
 
+create_object PALISADE_WALL { /* external pallisade wall (2) */
+	set_place_for_every_player
+	min_distance_to_players 10
+	max_distance_to_players 10
+}
 
 create_object PALISADE_WALL { /* external pallisade wall (2) */
 	set_place_for_every_player
-	min_distance_to_players 15
-	max_distance_to_players 15
+	min_distance_to_players 25
+	max_distance_to_players 25
 }
 
 
